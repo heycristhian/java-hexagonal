@@ -1,6 +1,6 @@
 package com.seucontrolefinanceiro.feature;
 
-import com.seucontrolefinanceiro.domain.model.User;
+import com.seucontrolefinanceiro.application.entities.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;

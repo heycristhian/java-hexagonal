@@ -1,7 +1,7 @@
 package com.seucontrolefinanceiro.feature;
 
-import com.seucontrolefinanceiro.domain.model.BillType;
-import com.seucontrolefinanceiro.domain.model.PaymentCategory;
+import com.seucontrolefinanceiro.application.entities.enums.BillType;
+import com.seucontrolefinanceiro.application.entities.PaymentCategory;
 
 import java.util.List;
 

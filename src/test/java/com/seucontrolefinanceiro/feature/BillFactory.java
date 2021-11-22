@@ -1,7 +1,7 @@
 package com.seucontrolefinanceiro.feature;
 
-import com.seucontrolefinanceiro.domain.model.Bill;
-import com.seucontrolefinanceiro.domain.model.BillType;
+import com.seucontrolefinanceiro.application.entities.Bill;
+import com.seucontrolefinanceiro.application.entities.enums.BillType;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
