@@ -6,6 +6,7 @@ import com.seucontrolefinanceiro.application.ports.repositories.BillRepository;
 import com.seucontrolefinanceiro.application.ports.repositories.UserRepository;
 import com.seucontrolefinanceiro.application.ports.services.BillService;
 import com.seucontrolefinanceiro.application.exception.ObjectNotFoundException;
+import com.seucontrolefinanceiro.application.ports.services.UserService;
 import com.seucontrolefinanceiro.application.services.util.GenerateObject;
 
 import java.util.List;
@@ -16,15 +17,15 @@ public class BillServiceImpl implements BillService {
 
     private final BillRepository repository;
 
-    private final UserServiceImpl userServiceImpl;
+    private final UserService userService;
 
     private final UserRepository userRepository;
 
     private final int PORTION_DEFAULT = 11;
 
-    public BillServiceImpl(BillRepository repository, UserServiceImpl userServiceImpl, UserRepository userRepository) {
+    public BillServiceImpl(BillRepository repository, UserService userService, UserRepository userRepository) {
         this.repository = repository;
-        this.userServiceImpl = userServiceImpl;
+        this.userService = userService;
         this.userRepository = userRepository;
     }
 
@@ -40,7 +41,7 @@ public class BillServiceImpl implements BillService {
 
     @Override
     public Bill save(Bill bill) {
-        User user = userServiceImpl.findById(bill.getUserId());
+        User user = userService.findById(bill.getUserId());
         List<Bill> allBillsByUserId = repository.findByUserId(bill.getUserId());
         user.setBills(allBillsByUserId);
         analyzeMonthlyBill(bill, user);
@@ -109,7 +110,7 @@ public class BillServiceImpl implements BillService {
 
     private void createChildrenBill(Bill newBill) {
         List<Bill> bills;
-        User user = userServiceImpl.findById(newBill.getUserId());
+        User user = userService.findById(newBill.getUserId());
         user.setBills(repository.findByUserId(newBill.getUserId()));
 
         Integer index = newBill.getPortion() == null ? PORTION_DEFAULT : newBill.getPortion();

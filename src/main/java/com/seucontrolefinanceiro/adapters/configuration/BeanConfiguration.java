@@ -25,7 +25,7 @@ public class BeanConfiguration {
     }
 
     @Bean
-    BillService billService(BillRepository billRepository, UserServiceImpl userService, UserRepository userRepository) {
+    BillService billService(BillRepository billRepository, UserService userService, UserRepository userRepository) {
         return new BillServiceImpl(billRepository, userService, userRepository);
     }
 

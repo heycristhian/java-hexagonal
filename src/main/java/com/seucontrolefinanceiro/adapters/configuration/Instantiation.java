@@ -6,6 +6,7 @@ import com.seucontrolefinanceiro.application.entities.enums.BillType;
 import com.seucontrolefinanceiro.application.ports.repositories.BillRepository;
 import com.seucontrolefinanceiro.application.ports.repositories.PaymentCategoryRepository;
 import com.seucontrolefinanceiro.application.ports.repositories.UserRepository;
+import com.seucontrolefinanceiro.application.ports.services.BillService;
 import com.seucontrolefinanceiro.application.services.BillServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +23,7 @@ public class Instantiation implements CommandLineRunner {
     private UserRepository userRepository;
 
     @Autowired
-    private BillServiceImpl billServiceImpl;
+    private BillService billServiceImpl;
 
     @Autowired
     private BillRepository billRepository;
@@ -30,9 +31,16 @@ public class Instantiation implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        boolean notExistData = paymentCategoryRepository.findAll().isEmpty();
+//        boolean notExistData = paymentCategoryRepository.findAll().isEmpty();
 
-        if (notExistData) {
+        System.out.println(User.builder()
+                .fullName("Cristhian Dias")
+                .email("heycristhian@gmail.com")
+                .password(new BCryptPasswordEncoder().encode("admin"))
+                .cpf("45073070828")
+                .build().getPassword());
+
+        if (1 == 2) {
             paymentCategoryRepository.save(
                     PaymentCategory.builder()
                             .description("Empréstimo")
