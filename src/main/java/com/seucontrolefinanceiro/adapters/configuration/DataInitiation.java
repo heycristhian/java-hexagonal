@@ -7,14 +7,13 @@ import com.seucontrolefinanceiro.application.ports.repositories.BillRepository;
 import com.seucontrolefinanceiro.application.ports.repositories.PaymentCategoryRepository;
 import com.seucontrolefinanceiro.application.ports.repositories.UserRepository;
 import com.seucontrolefinanceiro.application.ports.services.BillService;
-import com.seucontrolefinanceiro.application.services.BillServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
-public class Instantiation implements CommandLineRunner {
+public class DataInitiation implements CommandLineRunner {
 
     @Autowired
     private PaymentCategoryRepository paymentCategoryRepository;
