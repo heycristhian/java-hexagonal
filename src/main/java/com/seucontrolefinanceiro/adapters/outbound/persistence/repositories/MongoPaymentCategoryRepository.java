@@ -3,14 +3,18 @@ package com.seucontrolefinanceiro.adapters.outbound.persistence.repositories;
 import com.seucontrolefinanceiro.adapters.outbound.persistence.springdata.SpringDataMongoPaymentCategoryRepository;
 import com.seucontrolefinanceiro.application.entities.PaymentCategory;
 import com.seucontrolefinanceiro.application.ports.repositories.PaymentCategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
+@Primary
 public class MongoPaymentCategoryRepository implements PaymentCategoryRepository {
 
+    @Autowired
     private SpringDataMongoPaymentCategoryRepository repository;
 
     @Override

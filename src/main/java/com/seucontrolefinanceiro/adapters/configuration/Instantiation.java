@@ -23,7 +23,7 @@ public class Instantiation implements CommandLineRunner {
     private UserRepository userRepository;
 
     @Autowired
-    private BillService billServiceImpl;
+    private BillService billService;
 
     @Autowired
     private BillRepository billRepository;
@@ -31,16 +31,9 @@ public class Instantiation implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        boolean notExistData = paymentCategoryRepository.findAll().isEmpty();
+        boolean notExistData = paymentCategoryRepository.findAll().isEmpty();
 
-        System.out.println(User.builder()
-                .fullName("Cristhian Dias")
-                .email("heycristhian@gmail.com")
-                .password(new BCryptPasswordEncoder().encode("admin"))
-                .cpf("45073070828")
-                .build().getPassword());
-
-        if (1 == 2) {
+        if (notExistData) {
             paymentCategoryRepository.save(
                     PaymentCategory.builder()
                             .description("Empréstimo")

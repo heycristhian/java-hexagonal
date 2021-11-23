@@ -3,14 +3,18 @@ package com.seucontrolefinanceiro.adapters.outbound.persistence.repositories;
 import com.seucontrolefinanceiro.adapters.outbound.persistence.springdata.SpringDataMongoUserRepository;
 import com.seucontrolefinanceiro.application.entities.User;
 import com.seucontrolefinanceiro.application.ports.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
+@Primary
 public class MongoUserRepository implements UserRepository {
 
+    @Autowired
     private SpringDataMongoUserRepository repository;
 
     @Override
