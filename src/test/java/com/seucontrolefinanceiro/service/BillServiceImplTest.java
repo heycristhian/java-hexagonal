@@ -9,7 +9,6 @@ import com.seucontrolefinanceiro.application.services.UserServiceImpl;
 import com.seucontrolefinanceiro.feature.BillFactory;
 import com.seucontrolefinanceiro.feature.UserFactory;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -22,7 +21,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @ExtendWith(MockitoExtension.class)
 class BillServiceImplTest {
 
